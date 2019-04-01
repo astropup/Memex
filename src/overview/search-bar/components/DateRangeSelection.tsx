@@ -8,22 +8,24 @@ import 'react-datepicker/dist/react-datepicker.css'
 import analytics from 'src/analytics'
 import { remoteFunction } from 'src/util/webextensionRPC'
 import { DATE_PICKER_DATE_FORMAT as FORMAT } from '../constants'
-import styles from './DateRangeSelection.css'
+const styles = require('./DateRangeSelection.css')
 import './datepicker-overrides.css'
 import { EVENT_NAMES } from '../../../analytics/internal/constants'
 
 const processEvent = remoteFunction('processEvent')
 const stylesPro = require('../../tooltips/components/tooltip.css')
 
-class DateRangeSelection extends Component {
-    static propTypes = {
-        startDate: PropTypes.number,
-        endDate: PropTypes.number,
-        onStartDateChange: PropTypes.func,
-        onEndDateChange: PropTypes.func,
-        disabled: PropTypes.bool,
-        changeTooltip: PropTypes.func,
-    }
+interface Props {
+    startDate: number
+    endDate: number
+    onStartDateChange: Function
+    onEndDateChange: Function
+    disabled: boolean
+    changeTooltip: Function
+}
+class DateRangeSelection extends Component<Props> {
+    startDatePicker: any
+    endDatePicker: any
 
     state = {
         startDateText: this.props.startDate
