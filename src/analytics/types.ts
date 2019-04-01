@@ -1,7 +1,7 @@
 export interface Analytics {
     trackEvent(
         event: AnalyticsEvent,
-        options: AnalyticsTrackEventOptions,
+        options?: AnalyticsTrackEventOptions,
     ): Promise<any>
 }
 

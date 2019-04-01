@@ -18,10 +18,10 @@ const stylesPro = require('../../tooltips/components/tooltip.css')
 interface Props {
     startDate: number
     endDate: number
-    onStartDateChange: Function
-    onEndDateChange: Function
+    onStartDateChange: (...args) => void
+    onEndDateChange: (...args) => void
     disabled: boolean
-    changeTooltip: Function
+    changeTooltip: (...args) => void
 }
 class DateRangeSelection extends Component<Props> {
     startDatePicker: any
