@@ -23,6 +23,7 @@ import { tabManager } from './activity-logger/background'
 import './analytics/background'
 import './imports/background'
 import './omnibar'
+import analytics from './analytics'
 
 initSentry()
 
@@ -98,3 +99,4 @@ window['directLinking'] = directLinking
 window['search'] = search
 window['customList'] = customList
 window['notifications'] = notifications
+window['analytics'] = analytics
